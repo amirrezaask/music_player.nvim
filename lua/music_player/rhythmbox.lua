@@ -1,5 +1,4 @@
 local fn = vim.fn
-local music_player = require'music_player'
 
 local Rhythmbox = {
   updater = nil,

@@ -28,9 +28,10 @@ local function create_control_buffer(backend)
   api.nvim_buf_set_option(buf, 'buftype', 'nowrite')
   current_backend = backend 
   -- Set keymaps
-  api.nvim_buf_set_keymap(buf, 'n', 'n', 'luaeval(\'require("music_player").backend.next_song()\')', {})
-  api.nvim_buf_set_keymap(buf, 'n', 'p', 'luaeval(\'require("music_player").backend.prev_song()\')', {})
-
+  api.nvim_buf_set_keymap(buf, 'n', 'n', '<cmd>lua require"music_player".backend().next_song(require"music_player".backend())<CR>', {})
+  api.nvim_buf_set_keymap(buf, 'n', 'p', '<cmd>lua require"music_player".backend().prev_song(require"music_player".backend())<CR>', {})
+  api.nvim_buf_set_keymap(buf, 'n', '<CR>', '<cmd>lua require"music_player".backend().play_pause(require"music_player".backend())<CR>', {})
+  
   backend.updater = function(lines)
     update_buf(buf, lines) 
   end
