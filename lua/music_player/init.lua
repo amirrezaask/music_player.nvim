@@ -27,7 +27,7 @@ end
 
 local function create_control_buffer(backend)
   local buf = api.nvim_create_buf(true, false)
-  api.nvim_buf_set_name(buf, 'MusicPlayerController')
+  api.nvim_buf_set_name(buf, 'Music://')
   api.nvim_buf_set_option(buf, 'modifiable', false)
   api.nvim_buf_set_option(buf, 'buftype', 'nowrite')
 
